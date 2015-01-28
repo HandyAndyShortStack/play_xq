@@ -1,0 +1,28 @@
+{
+  "name": "maze",
+  "version": "0.0.1",
+  "description": "simple maze game for mobile web",
+  "main": "index.js",
+  "dependencies": {
+    "coffee-script": "latest",
+    "jade": "latest",
+    "stylus": "latest",
+    "parallelshell": "latest",
+    "node-static": "latest",
+    "cowsay": "latest"
+  },
+  "scripts": {
+    "watch:coffee": "coffee -o build/js/ -cw coffee/",
+    "watch:jade": "jade --watch jade/ --out build/",
+    "watch:stylus": "stylus --watch stylus/ --out build/styles",
+    "watch": "parallelshell 'npm run watch:coffee' 'npm run watch:jade' 'npm run watch:stylus'",
+    "server": "node server.js",
+    "dev": "parallelshell 'npm run watch' 'npm run server'"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://anshort@stash.ddhive.com/scm/as/maze.git"
+  },
+  "author": "Andy Short",
+  "license": "ISC"
+}
