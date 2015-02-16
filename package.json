@@ -18,5 +18,5 @@
     "server": "node server.js",
     "dev": "parallelshell 'npm run watch' 'npm run server'"
   },
-  "author": "Andy Short",
+  "author": "Andy Short"
 }
