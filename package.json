@@ -8,7 +8,9 @@
     "stylus": "latest",
     "parallelshell": "latest",
     "node-static": "latest",
-    "cowsay": "latest"
+    "cowsay": "latest",
+    "chinese_chess": "latest",
+    "watchify": "latest"
   },
   "scripts": {
     "watch:coffee": "coffee -o build/js/ -cw coffee/",
