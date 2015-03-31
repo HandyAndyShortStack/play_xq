@@ -34,8 +34,4 @@ describe('Phantom', function() {
       done()
     });
   });
-
-  afterAll(function() {
-    ph.exit();
-  })
-})
+});
