@@ -1,10 +1,13 @@
 window.Game = Game = require 'chinese_chess'
 
-window.game = new Game
+cellSize = 55
+strokeWidth = 2.5
+game = new Game
+board = null
 
 window.drawBoard = ->
   $('.test-board').html ''
-  board = new XiangqiViewer.Board '.test-board', 55, 2.5, false
+  board = new XiangqiViewer.Board '.test-board', cellSize, strokeWidth, false
   for location, piece of game.position
     board.place [placement(location, piece)]
 
@@ -25,4 +28,3 @@ placement = (location, piece) ->
 
 $ ->
   drawBoard()
-

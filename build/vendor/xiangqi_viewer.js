@@ -118,6 +118,8 @@ XiangqiViewer.BoardRenderer = function(selector, cellSize, strokeWidth) {
         fill: 'none',
         stroke: HIGHLIGHT_COLOR,
         strokeWidth: strokeWidth,
+        'data-rank': position.rank,
+        'data-file': position.file
       }));
   };
 
@@ -177,6 +179,10 @@ XiangqiViewer.Board = function(selector, cellSize, strokeWidth, ui) {
 
     matrix[file][rank] = piece;
     piece.rendered = renderer.putPiece(file, rank, piece);
+    piece.rendered.attr({
+      'data-rank': rank,
+      'data-file': file
+    });
   };
 
   var searchBackward = function(pieceCode, red) {
