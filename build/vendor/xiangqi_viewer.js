@@ -115,11 +115,13 @@ XiangqiViewer.BoardRenderer = function(selector, cellSize, strokeWidth) {
 
     highlighted.push(root.circle(x, y, PIECE_SIZE * 1.2 / 2)
       .attr({
-        fill: 'none',
+        fill: 'rgba(0, 0, 0, 0)',
         stroke: HIGHLIGHT_COLOR,
         strokeWidth: strokeWidth,
         'data-rank': position.rank,
-        'data-file': position.file
+        'data-file': position.file,
+        'data-highlight': true,
+        'class': 'highlight'
       }));
   };
 
