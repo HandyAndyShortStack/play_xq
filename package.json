@@ -11,7 +11,8 @@
     "cowsay": "latest",
     "chinese_chess": "latest",
     "browserify": "latest",
-    "watch": "latest"
+    "watch": "latest",
+    "phantom": "latest"
   },
   "scripts": {
     "watch:coffee": "coffee -o build/js/ -cw coffee/",
