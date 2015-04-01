@@ -1,37 +1,22 @@
-var phantom = require('phantom');
-
 describe('Phantom', function() {
-  var ph;
-  var page;
-  var status;
 
-  beforeEach(function(done) {
-    phantom.create(function(_ph) {
-      ph = _ph;
-      ph.createPage(function(_page) {
-        page = _page;
-        page.open('http://localhost:4010', function(_status) {
-          status = _status
-          done();
-        });
-      });
+  it('can sucessfully load a page', function(done) {
+    visit('localhost:4010', function(ph, page, status) {
+      expect(status).toEqual('success');
+      ph.exit();
+      done();
     });
   });
 
-  afterEach(function() {
-    ph.exit();
-  });
-
-  it('can sucessfully load a page', function() {
-    expect(status).toEqual('success');
-  });
-
   it('loads the page title', function(done) {
-    page.evaluate(function() {
-      return document.title;
-    }, function(value) {    
-      expect(value).toMatch('xiangqi');
-      done()
+    visit('localhost:4010', function(ph, page, status) {
+      page.evaluate(function() {
+        return document.title;
+      }, function(value) {
+        expect(value).toMatch('xiangqi');
+        ph.exit();
+        done();
+      });
     });
   });
 });
