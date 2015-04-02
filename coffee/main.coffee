@@ -44,7 +44,7 @@ $ ->
     $el = $ event.target
     rank = $el.data 'rank'
     file = $el.data 'file'
-    if !Number(rank) or !Number(file)
+    if isNaN Number(rank) or isNaN Number(file)
       selectedPiece = null
       return true
     position = rank: rank, file: file
@@ -59,11 +59,8 @@ $ ->
         alert 'checkmate'
       else if game.position.isCheck
         alert 'check'
-    else
-      if !legalMoves[coordinates]
-        selectedPiece = null
-        return false
+    else if game.position[coordinates]?.color is game.position.toMove
       selectedPiece = game.position[coordinates]
       board.highlight position
-      for move in legalMoves[coordinates]
+      for move in (legalMoves[coordinates] or [])
         board.highlight getPosition(move)

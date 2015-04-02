@@ -78,12 +78,12 @@
     $boardEl = $('.test-board');
     drawBoard();
     return $(document.body).on('click', function(event) {
-      var $el, coordinates, file, legalMoves, move, position, rank, _i, _len, _ref, _results;
+      var $el, coordinates, file, legalMoves, move, position, rank, _i, _len, _ref, _ref1, _results;
       $boardEl.find('circle').remove();
       $el = $(event.target);
       rank = $el.data('rank');
       file = $el.data('file');
-      if (!Number(rank) || !Number(file)) {
+      if (isNaN(Number(rank) || isNaN(Number(file)))) {
         selectedPiece = null;
         return true;
       }
@@ -107,17 +107,13 @@
         } else if (game.position.isCheck) {
           return alert('check');
         }
-      } else {
-        if (!legalMoves[coordinates]) {
-          selectedPiece = null;
-          return false;
-        }
+      } else if (((_ref = game.position[coordinates]) != null ? _ref.color : void 0) === game.position.toMove) {
         selectedPiece = game.position[coordinates];
         board.highlight(position);
-        _ref = legalMoves[coordinates];
+        _ref1 = legalMoves[coordinates] || [];
         _results = [];
-        for (_i = 0, _len = _ref.length; _i < _len; _i++) {
-          move = _ref[_i];
+        for (_i = 0, _len = _ref1.length; _i < _len; _i++) {
+          move = _ref1[_i];
           _results.push(board.highlight(getPosition(move)));
         }
         return _results;
