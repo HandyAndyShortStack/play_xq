@@ -21,7 +21,8 @@
     "watch:bundle": "watch 'browserify build/js/main.js -o build/js/bundle.js' build/js",
     "watch": "parallelshell 'npm run watch:coffee' 'npm run watch:jade' 'npm run watch:stylus' 'npm run watch:bundle'",
     "server": "node server.js",
-    "dev": "parallelshell 'npm run watch' 'npm run server'"
+    "dev": "parallelshell 'npm run watch' 'npm run server'",
+    "test": "jasmine"
   },
   "author": "Andy Short"
 }
