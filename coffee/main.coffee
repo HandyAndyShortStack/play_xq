@@ -44,7 +44,7 @@ $ ->
     $el = $ event.target
     rank = $el.data 'rank'
     file = $el.data 'file'
-    if !Number.isInteger(rank) or !Number.isInteger(file)
+    if !Number(rank) or !Number(file)
       selectedPiece = null
       return true
     position = rank: rank, file: file

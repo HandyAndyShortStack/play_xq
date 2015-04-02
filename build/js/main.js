@@ -82,7 +82,7 @@
       $el = $(event.target);
       rank = $el.data('rank');
       file = $el.data('file');
-      if (!Number.isInteger(rank) || !Number.isInteger(file)) {
+      if (!Number(rank) || !Number(file)) {
         selectedPiece = null;
         return true;
       }
